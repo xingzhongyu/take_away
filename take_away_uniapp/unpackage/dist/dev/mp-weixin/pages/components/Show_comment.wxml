@@ -1,0 +1,1 @@
+<view><block wx:for="{{$root.l0}}" wx:for-item="comment" wx:for-index="index" wx:key="index"><uni-card vue-id="{{'4b5f2e79-1-'+index}}" extra="{{comment.g0+'分'}}" note="{{'商品:'+comment.$orig.taFood.title}}" title="{{comment.$orig.taUser.nickname}}" bind:__l="__l" vue-slots="{{['default']}}"><text>{{comment.$orig.taComment.content}}</text></uni-card></block></view>

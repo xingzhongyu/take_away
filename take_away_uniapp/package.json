@@ -1,0 +1,23 @@
+{
+  "name": "take_away_uniapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "axios": "^0.21.3",
+    "js-cookie": "^3.0.1",
+    "jsonp": "^0.2.1",
+    "uview-ui": "^1.8.4",
+    "vue-jsonp": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

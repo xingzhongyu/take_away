@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/components/Cart",
+    "pages/components/Person",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/components/Shop",
+    "pages/components/Food",
+    "pages/components/Orders",
+    "pages/components/Rate",
+    "pages/components/Show_comment",
+    "pages/components/Coupons",
+    "pages/components/Chat",
+    "pages/components/Address"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#C0C4CC",
+    "selectedColor": "#fa436a",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/components/Orders",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/components/Person",
+        "text": "我的"
+      }
+    ]
+  },
+  "uniStatistics": {
+    "enable": false
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}
