@@ -1,0 +1,16 @@
+.top_ta.data-v-fc5b3f20 {
+  margin-top: 60rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #3B4144;
+}
+.middle.data-v-fc5b3f20 {
+  margin-top: 60rpx;
+  margin-bottom: 60rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #3B4144;
+}
+.foot.data-v-fc5b3f20 {
+  margin: 0 auto;
+  width: 60%;
+}
+

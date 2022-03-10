@@ -1,0 +1,10 @@
+.img.data-v-5411f386 {
+  height: 200rpx;
+  width: 200rpx;
+}
+.card_shop.data-v-5411f386 {
+  display: inline-block;
+  width: 50%;
+  height: 500rpx;
+}
+

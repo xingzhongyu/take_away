@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "uni-pagination": "/uni_modules/uni-pagination/components/uni-pagination/uni-pagination",
+    "shop": "/pages/components/Shop"
+  }
+}
