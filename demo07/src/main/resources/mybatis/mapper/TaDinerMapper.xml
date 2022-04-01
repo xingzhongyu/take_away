@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo07.mapper.TaDinerMapper">
+    <insert id="insertTaDiner" useGeneratedKeys="true" keyProperty="dinerId">
+        insert into ta_diner(score, title, description, img_url, address, user_id,comment_num) VALUES (#{score},#{title},#{description},#{imgUrl},#{address},#{userId},#{commentNum})
+    </insert>
+    <select id="getTaDinerByUserId" resultType="TaDiner">
+        select * from ta_diner where user_id=#{userId}
+    </select>
+    <select id="getTaDiner" resultType="TaDiner">
+        select * from ta_diner
+    </select>
+    <select id="getTaDinerByDinerId" resultType="TaDiner">
+        select * from ta_diner where diner_id=#{dinerId}
+    </select>
+    <select id="searchTaDiner" resultType="TaDiner">
+        select * from ta_diner where title like concat('%',#{word},'%')
+    </select>
+    <update id="changeTaDiner">
+        update ta_diner set score=#{score},comment_num=#{commentNum} where diner_id=#{dinerId}
+    </update>
+</mapper>

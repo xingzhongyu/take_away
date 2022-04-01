@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo07.mapper.TaCourierMapper">
+    <select id="login" resultType="TaCourier">
+        select * from ta_courier where username=#{username} and password=#{password}
+    </select>
+    <select id="getCourier" resultType="long">
+        select ta_courier.courier_id from ta_courier
+            left join (select * from ta_order where status=1)  t
+                on ta_courier.courier_id = t.courier_id
+                    group by ta_courier.courier_id
+                        having count(t.order_id) &lt;= all(select count(order_id)
+                            from ta_courier
+                                left join (select * from ta_order where status=1) a
+                                    on ta_courier.courier_id=a.courier_id
+                                        group by ta_courier.courier_id) limit 1
+    </select>
+    <select id="getTaCourierByCourierId" resultType="TaCourier">
+        select * from ta_courier where courier_id=#{courierId}
+    </select>
+    <insert id="register" useGeneratedKeys="true" keyProperty="courierId">
+        insert into ta_courier(phone, status, location, score, password, username) VALUES
+                                                                        (#{phone},#{status},#{location},#{score},#{password},#{username})
+    </insert>
+</mapper>

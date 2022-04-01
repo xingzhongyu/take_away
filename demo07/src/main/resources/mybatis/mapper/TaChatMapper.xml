@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo07.mapper.TaChatMapper">
+    <select id="getTaChatByOrderId" resultType="TaChat">
+        select * from ta_chat where order_id=#{orderId}
+    </select>
+    <select id="getTaChatByChatId" resultType="TaChat">
+        select * from ta_chat where chat_id=#{chatId}
+    </select>
+    <insert id="insertTaChat" useGeneratedKeys="true" keyProperty="chatId">
+        insert into ta_chat(content, time, order_id, type) VALUES (#{content},#{time},#{orderId},#{type})
+    </insert>
+</mapper>

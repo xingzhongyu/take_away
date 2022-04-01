@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo07.mapper.TaCouponMapper">
+    <select id="getTaCouponByUserId" resultType="TaCoupon">
+        select ta_coupon.* from ta_coupon  join ta_coupon_user tcu on ta_coupon.coupon_id = tcu.coupon_id and tcu.order_id=-1 and tcu.user_id=#{userId}
+    </select>
+    <select id="getTaCouponByCouponId" resultType="TaCoupon">
+        select * from ta_coupon where coupon_id=#{couponId}
+    </select>
+    <select id="getTaCoupon" resultType="TaCoupon">
+        select * from ta_coupon
+    </select>
+    <insert id="insertTaCoupon" useGeneratedKeys="true" keyProperty="couponId">
+        insert into ta_coupon(title, type, description, level, least, days, discount, category,  start_time) values (#{title},#{type},#{description},#{level},#{least},#{days},#{discount},#{category},#{startTime})
+    </insert>
+    <delete id="deleteTaCoupon">
+        delete from ta_coupon where coupon_id=#{couponId}
+    </delete>
+    <update id="changeTaCoupon">
+        update ta_coupon set title=#{title},type=#{type},description=#{description},level=#{level},least=#{least},days=#{days},discount=#{discount},category=#{category},start_time=#{startTime} where coupon_id=#{couponId}
+    </update>
+</mapper>

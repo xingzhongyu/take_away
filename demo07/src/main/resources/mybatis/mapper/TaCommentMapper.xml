@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo07.mapper.TaCommentMapper">
+    <insert id="insertTaComment" useGeneratedKeys="true" keyProperty="commentId">
+        insert into ta_comment(content, score, order_id, type) VALUES (#{content},#{score},#{orderId},#{type})
+    </insert>
+    <select id="getTaComment" resultType="TaComment">
+        select * from ta_comment where order_id=#{orderId} and type=#{type}
+    </select>
+    <select id="getTaCommentByCommentId" resultType="TaComment">
+        select * from ta_comment where comment_id=#{commentId}
+    </select>
+</mapper>

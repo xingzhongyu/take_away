@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo07.mapper.TaOrderMapper">
+<select id="getTaOrderByUserId" resultType="TaOrder">
+    select * from ta_order where user_id=#{userId}
+</select>
+    <select id="getTaOrderByFoodId" resultType="TaOrder">
+        select * from ta_order where food_id=#{foodId}
+    </select>
+    <select id="getTaOrderByCourierId" resultType="TaOrder">
+        select * from ta_order where courier_id=#{courierId}
+    </select>
+    <select id="getTaOrderByOrderId" resultType="TaOrder">
+        select * from ta_order where order_id=#{orderId}
+    </select>
+    <select id="getTaOrder" resultType="TaOrder">
+        select * from ta_order
+    </select>
+    <select id="getTaOrderByDinerUserId" resultType="TaOrder">
+        select * from ta_order a left join ta_food b on a.food_id=b.food_id left join ta_diner c on b.diner_id=c.diner_id left join ta_user d on c.user_id=d.user_id where d.user_id=#{userId}
+    </select>
+    <insert id="insertTaOrder" useGeneratedKeys="true" keyProperty="orderId">
+        insert into ta_order(user_id, food_id, final_total_price, status, distance, courier_id, address, num) VALUES
+                (#{userId},#{foodId},#{finalTotalPrice},#{status},#{distance},#{courierId},#{address},#{num})
+    </insert>
+    <update id="changeTaOrder">
+        update ta_order set final_total_price=#{finalTotalPrice},status=#{status},distance=#{distance},address=#{address},num=#{num},courier_id=#{courierId} where order_id=#{orderId}
+    </update>
+</mapper>

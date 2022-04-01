@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo07.mapper.TaFoodMapper">
+    <select id="getTaFoodByDinerId" resultType="TaFood">
+        select * from ta_food where diner_id=#{dinerId}
+    </select>
+    <insert id="insertTaFood" useGeneratedKeys="true" keyProperty="foodId">
+        insert into ta_food(price, category, title, img_url, description, sales, diner_id, extra)
+        VALUES (#{price},#{category},#{title},#{imgUrl},#{description},#{sales},#{dinerId},#{extra})
+    </insert>
+    <select id="getTaFoodByFoodId" resultType="TaFood">
+        select * from ta_food where food_id=#{foodId}
+    </select>
+    <select id="getTaFoodByCategory" resultType="TaFood">
+        select * from ta_food where category=#{category} and diner_id=#{dinerId}
+    </select>
+    <update id="changeTaFood">
+        update ta_food set price=#{price},title=#{title},description=#{description},
+                           img_url=#{imgUrl},category=#{category},sales=#{sales} where food_id=#{foodId}
+    </update>
+    <delete id="deleteTaFood">
+        delete from ta_food where food_id=#{foodId}
+    </delete>
+</mapper>
